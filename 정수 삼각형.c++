@@ -24,7 +24,7 @@ int solution(vector<vector<int>> triangle) {
     v[0][0] = triangle[0][0];
     
     for(int i=0; i<height-1; i++){
-        for(int j=0; j<triangle[i].size(); j++){
+        for(int j=0; j<=i; j++){
             v[i+1][j] = max(v[i+1][j], v[i][j] + triangle[i+1][j]);
             v[i+1][j+1] = max(v[i+1][j+1], v[i][j] + triangle[i+1][j+1]);
         }

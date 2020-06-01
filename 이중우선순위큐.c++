@@ -23,7 +23,7 @@ vector<int> solution(vector<string> operations) {
         
         switch(_operation){
             case 'I':
-                dq.push_back(_operator);
+                dq.push_back(_operator1);
                 break;
             case 'D':
                 if(!dq.empty()){

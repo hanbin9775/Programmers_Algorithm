@@ -26,14 +26,12 @@ int solution(int n, vector<vector<int>> edge) {
         if(i!=1) dist[i] = INF;
     }
     q.push(1);
-    int cnt =0;
     
-    while(cnt!=n){
+    while(!q.empty()){
         int cur = q.front();
         q.pop();
         if(visited[cur]) continue;
         visited[cur] =true;
-        cnt++;
         
         for(int i=1; i<=n; i++){
             if(!visited[i] && arr[cur][i]){

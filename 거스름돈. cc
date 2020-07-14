@@ -1,0 +1,26 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int dp[100][100001];
+
+int solution(int n, vector<int> money) {
+    sort(money.begin(), money.end());
+    
+    for(int i=0; i<money.size(); i++){
+        dp[i][0] = 1;
+    }
+    for(int i=1; i<=n; i++){
+        if(i%money[0]==0) dp[0][i] = 1;
+    }
+    
+    for(int i=1; i<money.size(); i++){
+        for(int j=1; j<=n; j++){
+            if(j>=money[i]) dp[i][j] = (dp[i-1][j] + dp[i][j-money[i]])%1000000007;
+            else dp[i][j] = dp[i-1][j];
+        }
+    }
+    return dp[money.size()-1][n];
+}
